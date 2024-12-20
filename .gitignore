@@ -1,8 +1,5 @@
 build/
 out/
-*.o
-*.lib
-*.a
 
 # User-specific files
 *.rsuser
@@ -397,5 +394,4 @@ FodyWeavers.xsd
 *.sln.iml
 build_files
 raylib-master
-Makefile
 /*.sln

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="nemu.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="7.2617188"
+     inkscape:cx="41.58795"
+     inkscape:cy="71.677246"
+     inkscape:window-width="3800"
+     inkscape:window-height="2070"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient3"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ba9a9a;stop-opacity:1;"
+         offset="0.48556048"
+         id="stop3" />
+      <stop
+         style="stop-color:#141e30;stop-opacity:1;"
+         offset="0.48556048"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3"
+       id="linearGradient4"
+       x1="-3.7181277"
+       y1="64"
+       x2="133.37063"
+       y2="64"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.88064521,0,0,1.008304,15.17596,1.0154982e-5)" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:url(#linearGradient4);stroke-width:3.97464;stroke-dasharray:none"
+       id="rect2"
+       width="120.72656"
+       height="56.790455"
+       x="11.901608"
+       y="36.136234"
+       transform="matrix(1,0,-0.12807551,0.99176442,0,0)" />
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:800;font-stretch:normal;font-size:51.4803px;font-family:'JetBrainsMonoNL Nerd Font';-inkscape-font-specification:'JetBrainsMonoNL Nerd Font, Ultra-Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#141e30;fill-opacity:1;stroke-width:4.29128;stroke-dasharray:none"
+       x="4.7056108"
+       y="77.578156"
+       id="text1"
+       inkscape:label="text1"
+       transform="scale(0.922582,1.0839145)"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:italic;font-variant:normal;font-weight:800;font-stretch:normal;font-size:51.4803px;font-family:'JetBrainsMonoNL Nerd Font';-inkscape-font-specification:'JetBrainsMonoNL Nerd Font, Ultra-Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#141e30;fill-opacity:1;stroke-width:4.29128;stroke-dasharray:none"
+         x="4.7056108"
+         y="77.578156">NE</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:800;font-stretch:normal;font-size:51.4803px;font-family:'JetBrainsMonoNL Nerd Font';-inkscape-font-specification:'JetBrainsMonoNL Nerd Font, Ultra-Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ba9a9a;fill-opacity:1;stroke-width:4.29128;stroke-dasharray:none"
+       x="70.357254"
+       y="77.578156"
+       id="text1-7"
+       inkscape:label="text1"
+       transform="scale(0.922582,1.0839145)"><tspan
+         sodipodi:role="line"
+         id="tspan1-8"
+         style="font-style:italic;font-variant:normal;font-weight:800;font-stretch:normal;font-size:51.4803px;font-family:'JetBrainsMonoNL Nerd Font';-inkscape-font-specification:'JetBrainsMonoNL Nerd Font, Ultra-Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ba9a9a;fill-opacity:1;stroke-width:4.29128;stroke-dasharray:none"
+         x="70.357254"
+         y="77.578156">MU</tspan></text>
+  </g>
+</svg>

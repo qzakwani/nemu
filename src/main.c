@@ -60,7 +60,6 @@ void drawButtonSecondTheme(Button *button, Font *font, Vector2 *mousePoint)
 {
     if (CheckCollisionPointRec(*mousePoint, button->rect))
     {
-        // DrawRectangleRec(button->rect, BTN_BG_COLOR_SECOND);
         DrawRectangleGradientV(button->rect.x, button->rect.y, BTN_WIDTH * 0.8, BTN_HEIGHT * 0.2, (Color){186, 154, 154, 10}, BLANK);
         DrawRectangleGradientH(button->rect.x, button->rect.y + BTN_HEIGHT * 0.2, BTN_WIDTH * 0.2, BTN_HEIGHT * 0.8, (Color){186, 154, 154, 10}, BLANK);
         DrawRectangleGradientV(button->rect.x, button->rect.y + BTN_HEIGHT * 0.8, BTN_WIDTH, BTN_HEIGHT * 0.2, (Color){252, 208, 208, 0}, (Color){252, 208, 208, 20});
@@ -138,8 +137,8 @@ int main(int argc, char *argv[])
             .icon = 0xf0343,
             .state = 0,
             .action = false,
-            .command = "exit",
-            .args = {"exit", NULL}},
+            .command = "hyprctl",
+            .args = {"hyprctl", "dispatch", "exit", NULL}},
     };
 
     for (int i = 0; i < ROWS; i++)

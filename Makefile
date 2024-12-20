@@ -1,30 +1,53 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic -O2 -g -I./include  
+
+DEV_CFLAGS = -Wall -Wextra -pedantic -g -I./include
+BUILD_CFLAGS = -Wall -Wextra -pedantic -O2 -march=x86-64 -I./include
 
 SRC_DIR = src
-BUILD_DIR = build
-OUT_DIR = out
-EXEC = $(OUT_DIR)/nemu
+DEV_BUILD_DIR = build/dev
+BUILD_BUILD_DIR = build/release
+DEV_OUT_DIR = out/dev
+BUILD_OUT_DIR = out/build
+DEV_EXEC = $(DEV_OUT_DIR)/nemu
+BUILD_EXEC = $(BUILD_OUT_DIR)/nemu
 
-SOURCES = $(wildcard $(SRC_DIR)/*.c)
-OBJECTS = $(SOURCES:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
+DEV_SOURCES = $(wildcard $(SRC_DIR)/*.c)
+BUILD_SOURCES = $(wildcard $(SRC_DIR)/*.c)
+DEV_OBJECTS = $(DEV_SOURCES:$(SRC_DIR)/%.c=$(DEV_BUILD_DIR)/%.o)
+BUILD_OBJECTS = $(BUILD_SOURCES:$(SRC_DIR)/%.c=$(BUILD_BUILD_DIR)/%.o)
 
-$(EXEC): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(EXEC) -L./lib -lraylib -lm -lpthread -ldl -lrt -lX11
-	@echo "Build successful."
+.PHONY: build clean run run2
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@ 
 
-.PHONY: all clean run
+run: $(DEV_EXEC)
+	./$(DEV_EXEC)
 
-all: $(EXEC)
+run2: $(DEV_EXEC)
+	./$(DEV_EXEC) -
+
+
+$(DEV_EXEC): $(DEV_OBJECTS)
+	@mkdir -p $(DEV_OUT_DIR)
+	$(CC) $(DEV_OBJECTS) -o $(DEV_EXEC) -L./lib -lraylib -lm
+	@echo "Development build successful: $(DEV_EXEC)"
+
+$(DEV_BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(DEV_BUILD_DIR)
+	$(CC) $(DEV_CFLAGS) -c $< -o $@
+
+
+build: $(BUILD_EXEC)
+
+$(BUILD_EXEC): $(BUILD_OBJECTS)
+	@mkdir -p $(BUILD_OUT_DIR)
+	$(CC) $(BUILD_OBJECTS) -o $(BUILD_EXEC) -L./lib -lraylib -lm
+	@echo "Build for deployment successful: $(BUILD_EXEC)"
+
+$(BUILD_BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(BUILD_BUILD_DIR)
+	$(CC) $(BUILD_CFLAGS) -c $< -o $@
+
 
 clean:
-	rm -rf $(BUILD_DIR)/*.o $(EXEC)
-
-run: $(EXEC)
-	./$(EXEC)
-
-run2: $(EXEC)
-	./$(EXEC) -
+	rm -rf $(DEV_BUILD_DIR) $(BUILD_BUILD_DIR) $(DEV_OUT_DIR) $(BUILD_OUT_DIR)
+	@echo "Clean successful."

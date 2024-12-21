@@ -19,7 +19,7 @@ Welcome to Nemu! A sleek and user-friendly app that lets you manage your system 
 - 🔒 **Lock**: Lock your screen to keep your system secure while you’re away. `L`
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/qzakwani/nemu/refs/heads/main/resources/screenshots/theme1.png" alt="them 1" width="45%">
+  <img src="https://raw.githubusercontent.com/qzakwani/nemu/refs/heads/main/resources/screenshots/theme0.png" alt="them 1" width="45%">
   <img src="https://raw.githubusercontent.com/qzakwani/nemu/refs/heads/main/resources/screenshots/theme2.png" alt="theme 2" width="45%">
 </div>
 

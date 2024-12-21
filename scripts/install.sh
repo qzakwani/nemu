@@ -45,13 +45,13 @@ sudo mkdir -p "$BIN_DIR" "$TEMP_DIR"
 
 # Download the app binary from GitHub releases
 echo "Downloading the latest release..."
-if ! curl -L --progress-bar "$GITHUB_REPO/$APP_NAME" -o "$TEMP_DIR/$APP_NAME"; then
+if ! sudo curl -L --progress-bar "$GITHUB_REPO/$APP_NAME" -o "$TEMP_DIR/$APP_NAME"; then
     echo -e "\033[1;31m❌ Failed to download nemu. Please check your internet connection and try again.\033[0m"
     exit 1
 fi
 
 if [ "$IS_DESKTOP" = true ]; then
-if ! curl -L --progress-bar "$GITHUB_REPO/$ICON" -o "$TEMP_DIR/$ICON"; then
+if ! sudo curl -L --progress-bar "$GITHUB_REPO/$ICON" -o "$TEMP_DIR/$ICON"; then
     echo -e "\033[1;31m❌ Failed to download nemu. Please check your internet connection and try again.\033[0m"
     exit 1
 fi

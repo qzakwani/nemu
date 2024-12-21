@@ -35,13 +35,13 @@ fi
 # Check if the environment supports .desktop files
 if [ -n "$XDG_CURRENT_DESKTOP" ]; then
     IS_DESKTOP=true
-    mkdir -p "$DESKTOP_FILE_DIR" "$ICON_DIR"
+    sudo mkdir -p "$DESKTOP_FILE_DIR" "$ICON_DIR"
 else
     IS_DESKTOP=false
 fi
 
 # Create necessary directories
-mkdir -p "$BIN_DIR" "$TEMP_DIR"
+sudo mkdir -p "$BIN_DIR" "$TEMP_DIR"
 
 # Download the app binary from GitHub releases
 echo "Downloading the latest release..."
@@ -57,15 +57,8 @@ if ! curl -L --progress-bar "$GITHUB_REPO/$ICON" -o "$TEMP_DIR/$ICON"; then
 fi
 fi
 
-echo "Installing nemu..."
-mv "$TEMP_DIR/$APP_NAME" "$BIN_DIR"
-mv "$TEMP_DIR/$ICON" "$ICON_DIR"
-
-# Make the binary executable
-chmod +x "$BIN_DIR/$APP_NAME"
-
 if [ "$IS_DESKTOP" = true ]; then
-cat <<EOF > "$DESKTOP_FILE_DIR/$APP_NAME.desktop"
+cat <<EOF > "$TEMP_DIR/$APP_NAME.desktop"
 [Desktop Entry]
 Name=Nemu
 Version=1.0.0
@@ -79,8 +72,19 @@ Categories=Utility;
 EOF
 fi
 
+echo "Installing nemu..."
+sudo mv "$TEMP_DIR/$APP_NAME" "$BIN_DIR"
+sudo mv "$TEMP_DIR/$ICON" "$ICON_DIR"
+if [ "$IS_DESKTOP" = true ]; then
+sudo mv "$TEMP_DIR/$APP_NAME.desktop" "$DESKTOP_FILE_DIR"
+fi
+
+# Make the binary executable
+sudo chmod +x "$BIN_DIR/$APP_NAME"
+
+
 echo "Cleaning up..."
-rm -rf "$TEMP_DIR"
+sudo rm -rf "$TEMP_DIR"
 
 # Check if the bin directory is in PATH
 if ! echo "$PATH" | grep -q "$BIN_DIR"; then

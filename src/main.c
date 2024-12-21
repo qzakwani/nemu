@@ -92,6 +92,8 @@ short drawButtonSecondTheme(Button *button, Font *font, Vector2 *mousePoint)
 
 int main(int argc, char *argv[])
 {
+    SetTraceLogLevel(LOG_NONE);
+
     bool isHyprland = false;
     char *user;
     char *dsk = getenv("DESKTOP_SESSION");
@@ -127,7 +129,7 @@ int main(int argc, char *argv[])
     const int SCREEN_WIDTH = GetMonitorWidth(0);
 
     int codepoints[6] = {0xf011, 0xf04b2, 0xf0343, 0xead2, 0xf033e, 0xf0901};
-    Font font = LoadFontEx("resources/fonts/nemu.ttf", FONT_SIZE, codepoints, 6);
+    Font font = LoadFontEx("resources/fonts/nemu.ttf", FONT_SIZE, codepoints, 6); //! change for deployment
     ToggleFullscreen();
     SetTargetFPS(GetMonitorRefreshRate(0));
 

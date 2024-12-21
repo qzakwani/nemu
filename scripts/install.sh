@@ -3,6 +3,7 @@
 # General Variables
 APP_NAME="nemu"
 ICON="nemu.png"
+FONT="nemu.ttf"
 VERSION="v1.0.0"
 GITHUB_REPO="https://github.com/qzakwani/$APP_NAME/releases/download/$VERSION"
 
@@ -10,6 +11,7 @@ GITHUB_REPO="https://github.com/qzakwani/$APP_NAME/releases/download/$VERSION"
 BIN_DIR="/usr/local/bin"
 ICON_DIR="/usr/local/share/icons"
 DESKTOP_FILE_DIR="/usr/local/share/applications"
+FONT_DIR="/usr/local/share/fonts/"
 TEMP_DIR="$HOME/tmp/nemu"
 IS_DESKTOP=true
 
@@ -41,11 +43,17 @@ else
 fi
 
 # Create necessary directories
-sudo mkdir -p "$BIN_DIR" "$TEMP_DIR"
+sudo mkdir -p "$BIN_DIR" "$FONT_DIR" "$TEMP_DIR"
 
 # Download the app binary from GitHub releases
 echo "Downloading the latest release..."
 if ! sudo curl -L --progress-bar "$GITHUB_REPO/$APP_NAME" -o "$TEMP_DIR/$APP_NAME"; then
+    echo -e "\033[1;31m❌ Failed to download nemu. Please check your internet connection and try again.\033[0m"
+    exit 1
+fi
+
+# Download font
+if ! sudo curl -L --progress-bar "$GITHUB_REPO/$FONT" -o "$TEMP_DIR/$FONT"; then
     echo -e "\033[1;31m❌ Failed to download nemu. Please check your internet connection and try again.\033[0m"
     exit 1
 fi
@@ -75,8 +83,9 @@ fi
 
 echo "Installing nemu..."
 sudo mv "$TEMP_DIR/$APP_NAME" "$BIN_DIR"
-sudo mv "$TEMP_DIR/$ICON" "$ICON_DIR"
+sudo mv "$TEMP_DIR/$FONT" "$FONT_DIR"
 if [ "$IS_DESKTOP" = true ]; then
+sudo mv "$TEMP_DIR/$ICON" "$ICON_DIR"
 sudo mv "$TEMP_DIR/$APP_NAME.desktop" "$DESKTOP_FILE_DIR"
 fi
 

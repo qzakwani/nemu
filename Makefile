@@ -7,9 +7,9 @@ SRC_DIR = src
 DEV_BUILD_DIR = build/dev
 BUILD_BUILD_DIR = build/release
 DEV_OUT_DIR = out/dev
-BUILD_OUT_DIR = out/build
+RELEASE_OUT_DIR = out/release
 DEV_EXEC = $(DEV_OUT_DIR)/nemu
-BUILD_EXEC = $(BUILD_OUT_DIR)/nemu
+BUILD_EXEC = $(RELEASE_OUT_DIR)/nemu
 
 DEV_SOURCES = $(wildcard $(SRC_DIR)/*.c)
 BUILD_SOURCES = $(wildcard $(SRC_DIR)/*.c)
@@ -39,7 +39,7 @@ $(DEV_BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 build: $(BUILD_EXEC)
 
 $(BUILD_EXEC): $(BUILD_OBJECTS)
-	@mkdir -p $(BUILD_OUT_DIR)
+	@mkdir -p $(RELEASE_OUT_DIR)
 	$(CC) $(BUILD_OBJECTS) -o $(BUILD_EXEC) -L./lib -lraylib -lm
 	@echo "Build for deployment successful: $(BUILD_EXEC)"
 
@@ -49,5 +49,5 @@ $(BUILD_BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 
 
 clean:
-	rm -rf $(DEV_BUILD_DIR) $(BUILD_BUILD_DIR) $(DEV_OUT_DIR) $(BUILD_OUT_DIR)
+	rm -rf $(DEV_BUILD_DIR) $(BUILD_BUILD_DIR) $(DEV_OUT_DIR) $(RELEASE_OUT_DIR)
 	@echo "Clean successful."

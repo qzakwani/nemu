@@ -10,7 +10,7 @@ GITHUB_REPO="https://github.com/qzakwani/$APP_NAME/releases/download/$VERSION"
 BIN_DIR="/usr/local/bin"
 ICON_DIR="/usr/local/share/icons"
 DESKTOP_FILE_DIR="/usr/local/share/applications"
-TEMP_DIR="/tmp/nemu"
+TEMP_DIR="$HOME/tmp/nemu"
 IS_DESKTOP=true
 
 echo "Checking environment..."
@@ -58,7 +58,8 @@ fi
 fi
 
 if [ "$IS_DESKTOP" = true ]; then
-cat <<EOF > "$TEMP_DIR/$APP_NAME.desktop"
+sudo touch "$TEMP_DIR/$APP_NAME.desktop"
+cat << EOF | sudo tee "$TEMP_DIR/$APP_NAME.desktop" > /dev/null
 [Desktop Entry]
 Name=Nemu
 Version=1.0.0

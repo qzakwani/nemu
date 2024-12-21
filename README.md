@@ -1,6 +1,6 @@
 <div align="center">
   
-![Revmo Logo](https://github.com/qzakwani/nemu/blob/main/resources/logo/logo.png)
+<img src="https://raw.githubusercontent.com/qzakwani/nemu/refs/heads/main/resources/logo/logo.png" alt="nemu logo" width="128">
 
 # 🔒 **Nemu** 🔒
 
@@ -33,7 +33,7 @@ Before you install, make sure your system meets the following requirements:
 
 ### **1. Installation**
 
-To install Revmo, simply run the following curl command:
+To install Nemu, simply run the following curl command:
 
 ```sh
 sudo curl -fsSL https://raw.githubusercontent.com/qzakwani/nemu/refs/heads/main/scripts/install.sh | sh
@@ -62,7 +62,7 @@ Once installed, you can easily launch **Nemu**:
 
 ### **4. Uninstallation**
 
-If you ever need to remove **Revmo**, the process is just as simple as installing it. Run the following command in your terminal:
+If you ever need to remove **Nemu**, the process is just as simple as installing it. Run the following command in your terminal:
 
 ```sh
 sudo curl -fsSL https://raw.githubusercontent.com/qzakwani/nemu/refs/heads/main/scripts/uninstall.sh | sh
